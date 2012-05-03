@@ -1,17 +1,18 @@
-/*  Title: My First App (Assignment 2)
+/*  Title: My First App (Assignment 1)
 	Created By: Gawain Bracy II
-	Date: 04/05/12
-	VFW 1203
+	Date: 05/03/12
+	MiU 1205
 */
 h1{
 	color: #1E2129;
-	font: 1.4em Helvetica, "Trebuchet MS", Verdana, sans-serif;
+	font: 1.7em Helvetica, "Trebuchet MS", Verdana, sans-serif;
 	font-weight: bold;
 	text-transform: capitalize;
-	margin: 10px 10px;
+	text-align: center;
+	margin: 10px 0px;
 	border: 1px solid #999;
-	border-radius: 20px;
-	-moz-border-radius: 20px;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
 	-webkit-box-shadow: 
 	inset 1px 1px 15px rgba(0,0,0,0.24),
 	inset -1px -1px 15px rgba(0,0,0,0.24);
@@ -20,17 +21,11 @@ h1{
 	inset -1px -1px 15px rgba(0,0,0,0.24);
 	padding: 10px;
 	background: #CCBAAB;
-	width: 80%;
+	width: 92%;
 }
 
-span{
-	color: #C46D3B;
-	font: 0.9em Arial, "Trebuchet MS", sans-serif;
-	font-style: italic;
-}
-
-form{
-	background-color: #4B636E;
+body{
+	background-color: #9c9985;
 }
 
 p{
@@ -46,6 +41,22 @@ p{
 	text-decoration:;
 	*/
 }
+
+h2{
+	background-image: url('images/CTA_05.jpg');
+
+}
+span{
+	color: #C46D3B;
+	font: 0.9em Arial, "Trebuchet MS", sans-serif;
+	font-style: italic;
+}
+
+form{
+	background-color: #4B636E;
+}
+
+
 
 legend{
 	font: 1.3em "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
