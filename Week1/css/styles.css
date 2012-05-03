@@ -3,6 +3,12 @@
 	Date: 05/03/12
 	MiU 1205
 */
+html, body {
+  	height: 100%;
+  	margin: 0;
+  	padding: 0;
+}
+
 h1{
 	color: #1E2129;
 	font: 1.7em Helvetica, "Trebuchet MS", Verdana, sans-serif;
@@ -44,8 +50,19 @@ p{
 
 h2{
 	background-image: url('images/CTA_05.jpg');
-
+	padding: 50px;
+	background-repeat: no-repeat;
+	background-size: 100%;
 }
+
+/*button{
+	background-image: url('images/CTA_08.png');
+	padding: 20px 80px 40px 30px;
+	margin-left: 100px;
+	background-repeat: no-repeat;
+	background-size: 100%;
+
+}*/
 span{
 	color: #C46D3B;
 	font: 0.9em Arial, "Trebuchet MS", sans-serif;
