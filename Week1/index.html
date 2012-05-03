@@ -18,13 +18,16 @@
 		<!-- Document Title -->
 		<title>My First HTML5 Document</title>
 		<link rel="stylesheet" type="text/css" href="css/styles.css" />
-</style>
-		<!-- <script src="js/main.js" type="text/javascript"></script> -->
 	</head>
 
 	<body>
 		<header>
 			<h1>College Selector</h1>
+			<div id="searchcontainer">
+				<ul>
+					<li><input type="text" id="search" placeholder="Search Specific College" onfocus="styleField(&quot;search&quot;);" onBlur="unstyleField(&quot;search&quot;);"/></li>
+				</ul>
+			</div>
 		</header>
 		<article>
 			<!--<p>An app that helps you select colleges based on your interests.</p>-->
@@ -36,13 +39,12 @@
 			<div class="content-home">
 				<ol>
 					<li><a href="additem.html"><img src="images/FindCollege.png" style="border:none;" width="250" height="50" alt="additem"></a></li>
-					<li><a href="#" id="displayLink"><img src="images/PreviousColleges.png" style="border:none;" width="250" height="50" alt="Previous Colleges" </a></li>
+					<li><a href="#" id="displayLink"><img src="images/PreviousColleges.png" style="border:none;" width="250" height="50" alt="Previous Colleges"></a></li>
 				</ol>
 			</div>
 		</nav>
 
 	</footer>
-
+	<script src="js/main.js" type="text/javascript"></script>
 	</body>
-
 </html>

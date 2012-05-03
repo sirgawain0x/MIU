@@ -3,7 +3,7 @@
 	Date: 05/03/12
 	MiU 1205
 */
-html, body {
+html, body, ul, li {
   	height: 100%;
   	margin: 0;
   	padding: 0;
@@ -30,6 +30,10 @@ h1{
 	width: 92%;
 }
 
+#searchcontainer ul {
+	list-style-type: none;
+}
+
 body{
 	background-color: #9c9985;
 }
@@ -53,16 +57,14 @@ h2{
 	padding: 50px;
 	background-repeat: no-repeat;
 	background-size: 100%;
+	position: relative;
 }
 
-/*button{
-	background-image: url('images/CTA_08.png');
-	background-repeat: no-repeat;
-	background-size: 100%;
-	padding: 20px 80px 40px 30px;
-	margin-left: 100px;
-
-}*/
+.content-home ol{
+	list-style-type: none;
+	height: 100%;
+	margin: 0;
+}
 
 span{
 	color: #C46D3B;
@@ -73,8 +75,6 @@ span{
 form{
 	background-color: #4B636E;
 }
-
-
 
 legend{
 	font: 1.3em "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
@@ -99,4 +99,7 @@ textarea{
 a{
 	outline: 1px dotted grey;
 }
-a:hover{color: red;outline:none;}
+
+a:hover{
+	color: red;outline:none;
+}
