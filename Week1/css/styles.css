@@ -103,3 +103,10 @@ a{
 a:hover{
 	color: red;outline:none;
 }
+
+.footer-home{
+	font-size: 9pt;
+	text-align: center;
+	font-weight: normal;
+	margin-top: 10px;
+}
