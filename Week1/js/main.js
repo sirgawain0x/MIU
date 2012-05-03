@@ -158,7 +158,7 @@ window.addEventListener("DOMContentLoaded", function(){
         var imageLi = document.createElement('li');
         makeSubList.appendChild(imageLi);
         var newImg = document.createElement('img');
-        var setSrc = newImg.setAttribute("src", "icons/images/A.png");
+        var setSrc = newImg.setAttribute('src', "icons/images/" + iconName + ".png");
         imageLi.appendChild(newImg);
       
      };
@@ -327,6 +327,7 @@ window.addEventListener("DOMContentLoaded", function(){
                 var txt = document.createElement('li');
                 txt.innerHTML = messageAry[i];
                 errMsg.appendChild(txt);
+                messageAry.style = "red";
             };
             data.preventDefault();
             return false;
