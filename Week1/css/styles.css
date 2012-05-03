@@ -57,12 +57,13 @@ h2{
 
 /*button{
 	background-image: url('images/CTA_08.png');
-	padding: 20px 80px 40px 30px;
-	margin-left: 100px;
 	background-repeat: no-repeat;
 	background-size: 100%;
+	padding: 20px 80px 40px 30px;
+	margin-left: 100px;
 
 }*/
+
 span{
 	color: #C46D3B;
 	font: 0.9em Arial, "Trebuchet MS", sans-serif;
