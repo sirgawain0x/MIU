@@ -16,16 +16,17 @@
 		<meta name="mobileoptimized" content="320" />
 		
 		<!-- Document Title -->
-		<title>My First HTML5 Document</title>
+		<title>College Selector</title>
 		<link rel="stylesheet" type="text/css" href="css/styles.css" />
 	</head>
 
 	<body>
 		<header>
 			<h1>College Selector</h1>
-			<div id="searchcontainer">
+			<div class="search_field">
 				<ul>
-					<li><input type="text" id="search" placeholder="Search Specific College" onfocus="styleField(&quot;search&quot;);" onBlur="unstyleField(&quot;search&quot;);"/></li>
+					<li><input type="text" id="search" name="q" placeholder="Search Specific College" onfocus="styleField(&quot;search&quot;);" onBlur="unstyleField(&quot;search&quot;);"/>
+    				<button type="submit"><img src="images/Search.png" alt="Search" /></button></li>
 				</ul>
 			</div>
 		</header>

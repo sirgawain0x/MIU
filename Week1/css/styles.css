@@ -33,6 +33,22 @@ h1{
 ul {
 	list-style-type: none;
 }
+.search_field {
+    display: inline-block;
+    border: 1px inset #ccc;
+}
+
+.search_field input {
+    border: none;
+    margin-bottom: 5px;
+    padding: 0;
+    padding-bottom: 5px;
+}
+
+.search_field button {
+    border: none;
+    background: none;
+}
 
 body{
 	background-color: #9c9985;
