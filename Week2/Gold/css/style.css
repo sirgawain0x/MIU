@@ -1,1 +1,9 @@
-/* write your CSS in here*/
+/*  Title: My First App (Assignment 2)
+	Created By: Gawain Bracy II
+	Date: 05/09/12
+	MiU 1205
+*/
+html, body, ul, li {
+  	height: 100%;
+  	margin: 0;
+  	padding: 0;
