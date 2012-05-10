@@ -25,3 +25,20 @@ legend{
 	font: 0.9em Arial, "Trebuchet MS", sans-serif;
 	font-style: italic;
 }
+
+a:hover{
+	color: red; outline: none;
+}
+
+textarea{
+	padding: 10px;
+	width: 80%;
+}
+
+label{
+	display: block;
+}
+
+#form{
+	background-color: #4B636E;
+}
