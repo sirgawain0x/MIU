@@ -75,7 +75,7 @@ var json = {
 		"sex": ["Sex:", "Male"],
 		"group": ["GPA:", "D: 1.4 - 1.0"],
 		"pop": ["Campus Size:", "Medium"],
-		"interests": ["Interest(s):", "Information Sciences & Systems"]
+		"interests": ["Interest(s):", "Information Sciences and Systems"]
 	},
 	"interest9":{
 		"fname": ["First Name:", "Simon"],
