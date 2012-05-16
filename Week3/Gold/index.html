@@ -128,27 +128,40 @@
 		</div>
 		<div data-role="content">
 			<form action="" method="post" id="recordcollege">
-				<fieldset>
+			<fieldset>
 				<legend>Information</legend>
 				<span class="required">* Fields Required</span>
 				<ul id="errors"></ul>
 				<ul>
+					<div data-role="fieldcontain">
 					<li><label for="fname">* First Name:</label><input type="text" name="fname" id="fname" onfocus="styleField(&quot;fname&quot;);" onBlur="unstyleField(&quot;fname&quot;);"/></li>
+					</div>
+					<div data-role="fieldcontain">
 					<li><label for="lname">* Last Name:</label><input type="text" name="lname" id="lname" onfocus="styleField(&quot;lname&quot;);" onBlur="unstyleField(&quot;lname&quot;);"/></li>
+					</div>
 					<!--<li><label for="pword">* Password:</label><input type="password" id="pword" onfocus="styleField(&quot;pword&quot;);" onBlur="unstyleField(&quot;pword&quot;);"/></li>
 					<li><label for="cpword">* Confirm Password:(Disabled)</label><input type="password" id="cpword" onfocus="styleField(&quot;cpword&quot;);" onBlur="unstyleField(&quot;cpword&quot;);" disabled /></li>-->
+					<div data-role="fieldcontain">
 					<li><label for="email">* Email:</label><input type="email" name="email" id="email" placeholder="example@email.com" onfocus="styleField(&quot;email&quot;);" onBlur="unstyleField(&quot;email&quot;);" /></li>
+					</div>
 				</ul>
+			</div>
 			</fieldset>
 			<fieldset>
 				<legend>Questions</legend>
 				<ul>
 					<li>Male or Female?
 						<ul>
-							<li><label for="male">Male</label><input type="radio" id="male" checked value="male" name="sex" /></li>
-							<li><label for="female">Female</label><input type="radio" id="female" name="sex" /></li>
+							<div data-role="fieldcontain">
+							<li><label for="male">Male</label><input type="radio" id="male" checked value="male" name="male" /></li>
+							</div>
+							<div data-role="fieldcontain">
+							<li><label for="female">Female</label><input type="radio" id="female" name="female" /></li>
+							</div>
+
 						</ul>
 					</li>
+					<div data-role="fieldcontain">
 					<li id="select"><label for="gpaRange">* GPA Range:</label>
 						<!-- <select id="gpa">
 							<optgroup label="A">
@@ -168,19 +181,28 @@
 							</optgroup>
 						</select> -->
 					</li>
+					</div>
 					<li>Campus Size:
 						<ul>
-							<li><label for="small">Small (5k or less)></label><input type="checkbox" name="pop" id="small" /></li>
-							<li><label for="medium">Medium (5k - 15k)></label><input type="checkbox" checked value="Medium" name="pop" id="medium" /></li>
-							<li><label for="large">Large (15k +)></label><input type="checkbox" name="pop" id="large" /></li>
+							<div data-role="fieldcontain">
+							<li><label for="small">Small (5k or less)></label><input type="checkbox" name="small" id="small" /></li>
+							</div>
+							<div data-role="fieldcontain">
+							<li><label for="medium">Medium (5k - 15k)></label><input type="checkbox" checked value="Medium" name="medium" id="medium" /></li>
+							<div data-role="fieldcontain">
+							<li><label for="large">Large (15k +)></label><input type="checkbox" name="large" id="large" /></li>
+							</div>
 						</ul>
 					</li>
-					<li><label for="comments" >* What are your career interests?</label><textarea id="comments" placeholder="Engineering, Teaching, Welding, etc."></textarea>
+					<div data-role="fieldcontain"></div>
+					<li><label for="comments" >* What are your career interests?</label><textarea name="comments" id="comments" placeholder="Engineering, Teaching, Welding, etc."></textarea>
 					</li>
+					</div>
 				</ul>
 			</fieldset>
 			</form><!--Form-->
 		</div><!--Content-->
+
 		<div data-role="footer" data-position="fixed" data-id="home">
 			
 			<div data-role="navbar">
