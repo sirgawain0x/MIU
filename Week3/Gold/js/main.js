@@ -13,9 +13,6 @@ function unstyleField (name){
     return field;
 };
 
-$(document).ready(function () {
-    var rcForm = $('#recordcollege');
-
 //getElementById function
 function ne (x) {
     var theElement = document.getElementById(x);
@@ -268,6 +265,9 @@ var gpaRanges = ["--Choose Your GPA--","A: 4.0 - 3.5", "B: 3.4 - 2.5", "C: 2.4 -
             return false;
         };
     };
+
+    $(document).ready(function () {
+    var rcForm = $('#recordcollege');
  
     /*function validate (data) {
         //Define the elements we want to check
