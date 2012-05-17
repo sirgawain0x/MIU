@@ -13,9 +13,6 @@ function unstyleField (name){
     return field;
 };
 
-$(document).ready(function () {
-    var rcForm = $('#recordcollege');
-
 //getElementById function
 function ne (x) {
     var theElement = document.getElementById(x);
@@ -35,7 +32,8 @@ var gpaRanges = ["--Choose Your GPA--","A: 4.0 - 3.5", "B: 3.4 - 2.5", "C: 2.4 -
     validate,
     errMsg = ne('errors');
 
-
+$(document).ready(function () {
+    var rcForm = $('#recordcollege');
 
 // Create select field element and populate with options.
     function makeElement () {
@@ -270,7 +268,7 @@ var gpaRanges = ["--Choose Your GPA--","A: 4.0 - 3.5", "B: 3.4 - 2.5", "C: 2.4 -
         };
     };
  
-    function validate (data) {
+    /*function validate (data) {
         //Define the elements we want to check
         var getFname = ne('fname');
         var getLname = ne('lname');
@@ -325,7 +323,7 @@ var gpaRanges = ["--Choose Your GPA--","A: 4.0 - 3.5", "B: 3.4 - 2.5", "C: 2.4 -
             getInterests.style.border = "1px solid red";
             messageAry.push(interestsError);
         };
- 
+        */ 
         // If there are errors display them on screen
         if(messageAry.length >= 1){
             for (var i = 0, j = messageAry.length; i < j; i++) {
