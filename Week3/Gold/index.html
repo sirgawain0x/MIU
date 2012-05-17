@@ -122,12 +122,12 @@
 				<a href="#" data-role="button" id="displayLink" data-mini="true" data-inline="true" data-theme="b">Display Data</a>
 			</div>
 			<div class="ui-block-b">
-				<a href="#" data-role="button" id= "clear" data-mini="true" data-inline="true" >Clear Stored Data</a>
-				<a href="#addcollege" data-role="button" id="addNew" style="display:none" data-mini="true" data-inline="true">Add New Item</a>
+				<a href="#" data-role="button" id= "clear" data-mini="true" data-inline="true" data-theme="c">Clear Stored Data</a>
+				<a href="#addcollege" data-role="button" id="addNew" style="display:none" data-mini="true" data-inline="true" data-theme="c">Add New Item</a>
 			</div>
 		</div>
 		<div data-role="content">
-			<form action="" method="post" id="recordcollege">
+			<form action="#" method="post" id="recordcollege">
 			<fieldset>
 				<legend>Information</legend>
 				<span class="required">* Fields Required</span>
@@ -142,10 +142,9 @@
 					<!--<li><label for="pword">* Password:</label><input type="password" id="pword" onfocus="styleField(&quot;pword&quot;);" onBlur="unstyleField(&quot;pword&quot;);"/></li>
 					<li><label for="cpword">* Confirm Password:(Disabled)</label><input type="password" id="cpword" onfocus="styleField(&quot;cpword&quot;);" onBlur="unstyleField(&quot;cpword&quot;);" disabled /></li>-->
 					<div data-role="fieldcontain">
-					<li><label for="email">* Email:</label><input type="email" name="email" id="email" placeholder="example@email.com" onfocus="styleField(&quot;email&quot;);" onBlur="unstyleField(&quot;email&quot;);" /></li>
+					<li><label for="email">* Email:</label><input type="email" name="email" id="email" placeholder="example@email.com" onfocus="styleField(&quot;email&quot;);" onBlur="unstyleField(&quot;email&quot;);"/></li>
 					</div>
 				</ul>
-			</div>
 			</fieldset>
 			<fieldset>
 				<legend>Questions</legend>
@@ -194,9 +193,8 @@
 							</div>
 						</ul>
 					</li>
-					<div data-role="fieldcontain"></div>
-					<li><label for="comments" >* What are your career interests?</label><textarea name="comments" id="comments" placeholder="Engineering, Teaching, Welding, etc."></textarea>
-					</li>
+					<div data-role="fieldcontain">
+					<li><label for="comments" >* What are your career interests?</label><textarea name="comments" id="comments" placeholder="Engineering, Teaching, Welding, etc."></textarea></li>
 					</div>
 				</ul>
 			</fieldset>
