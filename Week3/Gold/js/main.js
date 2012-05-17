@@ -13,11 +13,15 @@ function unstyleField (name){
     return field;
 };
 
+$(document).ready(function () {
+    var rcForm = $('#recordcollege');
+
 //getElementById function
 function ne (x) {
     var theElement = document.getElementById(x);
     return theElement;
 };
+
 // variable defaults
 var gpaRanges = ["--Choose Your GPA--","A: 4.0 - 3.5", "B: 3.4 - 2.5", "C: 2.4 - 1.5", "D: 1.4 - 1.0", "F: 0.9 - 0.0"],
     sexValue,
@@ -31,9 +35,6 @@ var gpaRanges = ["--Choose Your GPA--","A: 4.0 - 3.5", "B: 3.4 - 2.5", "C: 2.4 -
     save,
     validate,
     errMsg = ne('errors');
-
-$(document).ready(function () {
-    var rcForm = $('#recordcollege');
 
 // Create select field element and populate with options.
     function makeElement () {
@@ -323,7 +324,7 @@ $(document).ready(function () {
             getInterests.style.border = "1px solid red";
             messageAry.push(interestsError);
         };
-        */ 
+
         // If there are errors display them on screen
         if(messageAry.length >= 1){
             for (var i = 0, j = messageAry.length; i < j; i++) {
@@ -340,17 +341,18 @@ $(document).ready(function () {
  
         };
     };
+    */
 
-makeElement();
+    makeElement();
 
 
 
-// Submit Link & Submit Click Events
-var displayLink = ne("displayLink");
+    // Submit Link & Submit Click Events
+    var displayLink = ne("displayLink");
 
-var clearLink = ne("clear");
+    var clearLink = ne("clear");
 
-var save = ne("submit");
+    var save = ne("submit");
 
 });
 
