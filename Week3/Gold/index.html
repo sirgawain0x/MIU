@@ -134,7 +134,7 @@
 				<ul id="errors"></ul>
 				<ul>
 					<div data-role="fieldcontain">
-					<li><label for="fname">* First Name:</label><input type="text" name="fname" id="fname" placeholder="First Name" onfocus="styleField(&quot;fname&quot;);" onBlur="unstyleField(&quot;fname&quot;);"/></li>
+					<li><label for="fname">* First Name:</label><input type="text" name="fname" id="fname" placeholder="First Name" onfocus="styleField(&quot;fname&quot;);" onBlur="unstyleField(&quot;fname&quot;);" class="required"/></li>
 					</div>
 					<div data-role="fieldcontain">
 					<li><label for="lname">* Last Name:</label><input type="text" name="lname" id="lname" placeholder="Last Name" onfocus="styleField(&quot;lname&quot;);" onBlur="unstyleField(&quot;lname&quot;);"/></li>
@@ -199,7 +199,8 @@
 					</div>
 				</ul>
 			</fieldset>
-			<input type="submit" value="Submit"id="submit" data-theme="b"/>
+			<input class="submit" type="submit" value="Submit"id="submit" data-theme="b" data-inline="true"/>
+			<a href="#home" id="cancel">Cancel</a>
 			</form><!--Form-->
 		</div><!--Content-->
 

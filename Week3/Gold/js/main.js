@@ -19,8 +19,14 @@ function unstyleField (name){
     return field;
 };
  
+ var parseCollegeForm = function(data) {
+     // Uses form data here...
+ };
 // Wait until the DOM is ready.
-window.addEventListener("DOMContentLoaded", function(){
+$(document).ready(function () {
+    var rcForm = $('#recordcollege');
+
+    
  
     //getElementById function
     function ne (x) {
@@ -355,6 +361,14 @@ window.addEventListener("DOMContentLoaded", function(){
     clearLink.addEventListener("click", clearLocal);
  
     var save = ne("submit");
-    save.addEventListener("click", validate);
+    rcForm.validate({
+        invalidHandler: function(form, validator) {},
+        submitHandler: function() {
+            var data = rcForm.serializeArray();
+            parseCollegeForm(data);
+        };
+
+    });
+    
  
 });
