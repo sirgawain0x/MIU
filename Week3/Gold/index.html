@@ -134,15 +134,15 @@
 				<ul id="errors"></ul>
 				<ul>
 					<div data-role="fieldcontain">
-					<li><label for="fname">* First Name:</label><input type="text" name="fname" id="fname" onfocus="styleField(&quot;fname&quot;);" onBlur="unstyleField(&quot;fname&quot;);"/></li>
+					<li><label for="fname">* First Name:</label><input type="text" name="fname" id="fname" placeholder="First Name" onfocus="styleField(&quot;fname&quot;);" onBlur="unstyleField(&quot;fname&quot;);"/></li>
 					</div>
 					<div data-role="fieldcontain">
-					<li><label for="lname">* Last Name:</label><input type="text" name="lname" id="lname" onfocus="styleField(&quot;lname&quot;);" onBlur="unstyleField(&quot;lname&quot;);"/></li>
+					<li><label for="lname">* Last Name:</label><input type="text" name="lname" id="lname" placeholder="Last Name" onfocus="styleField(&quot;lname&quot;);" onBlur="unstyleField(&quot;lname&quot;);"/></li>
 					</div>
 					<!--<li><label for="pword">* Password:</label><input type="password" id="pword" onfocus="styleField(&quot;pword&quot;);" onBlur="unstyleField(&quot;pword&quot;);"/></li>
 					<li><label for="cpword">* Confirm Password:(Disabled)</label><input type="password" id="cpword" onfocus="styleField(&quot;cpword&quot;);" onBlur="unstyleField(&quot;cpword&quot;);" disabled /></li>-->
 					<div data-role="fieldcontain">
-					<li><label for="email">* Email:</label><input type="email" name="email" id="email" placeholder="example@email.com" onfocus="styleField(&quot;email&quot;);" onBlur="unstyleField(&quot;email&quot;);"/></li>
+					<li><label for="email">* Email:</label><input type="email" name="email" id="email" onfocus="styleField(&quot;email&quot;);" onBlur="unstyleField(&quot;email&quot;);"/><p>example@email.com</p></li>
 					</div>
 				</ul>
 			</fieldset>
@@ -188,13 +188,14 @@
 							</div>
 							<div data-role="fieldcontain">
 							<li><label for="medium">Medium (5k - 15k)></label><input type="checkbox" checked value="Medium" name="medium" id="medium" /></li>
+							</div>
 							<div data-role="fieldcontain">
 							<li><label for="large">Large (15k +)></label><input type="checkbox" name="large" id="large" /></li>
 							</div>
 						</ul>
 					</li>
 					<div data-role="fieldcontain">
-					<li><label for="comments" >* What are your career interests?</label><textarea name="comments" id="comments" placeholder="Engineering, Teaching, Welding, etc."></textarea></li>
+					<li><label for="comments" >* What are your career interests?</label><textarea name="comments" id="comments"></textarea><p>Example: Engineering, Teaching, etc.</p></li>
 					</div>
 				</ul>
 			</fieldset>
@@ -205,10 +206,10 @@
 			
 			<div data-role="navbar">
 				<ul>
-					<li><a href="#home" class="ui-btn-active" data-icon="home">Home</a></li>
+					<li><a href="#home" data-icon="home">Home</a></li>
 					<li><a href="https://github.com/g2musicgroup/MIU/tree/gh-pages/Week2" data-icon="star">gh-Pages</a></li>
 					<li><a href="http://g2musicgroup.github.com/MIU/Week2/Bronze/index.html" data-icon="back">Bronze App</a></li>
-					<li><a href="#addcollege" data-icon="plus">Add</a></li>
+					<li><a href="#addcollege" data-icon="plus" class="ui-btn-active">Add</a></li>
 				</ul>
 			</div><!-- /navbar -->
 
