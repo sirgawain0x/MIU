@@ -1,5 +1,11 @@
-// Style field highlight
-    function styleField (name){
+/*  Title: College Selector App
+    Created By: Gawain Bracy II
+    Date: 05/17/12
+    VFW 1205
+*/
+ 
+// getElementById function
+function styleField (name){
          
     var field = document.getElementById(name);
     field.style.backgroundColor = "yellow";
@@ -12,32 +18,36 @@ function unstyleField (name){
     field.style.backgroundColor = "white";
     return field;
 };
+ 
+var parseCollegeForm = function(data) {
+     // Uses form data here...
+};
 
+// Wait until the DOM is ready.
 $(document).ready(function () {
     var rcForm = $('#recordcollege');
 
-//getElementById function
-function ne (x) {
-    var theElement = document.getElementById(x);
-    return theElement;
-};
-// variable defaults
-var gpaRanges = ["--Choose Your GPA--","A: 4.0 - 3.5", "B: 3.4 - 2.5", "C: 2.4 - 1.5", "D: 1.4 - 1.0", "F: 0.9 - 0.0"],
-    sexValue,
-    sizeValue,
-    autoFillData,
-    getImage,
-    json,
-    makeItemLinks,
-    editItem,
-    deleteItem,
-    save,
-    validate,
-    errMsg = ne('errors');
-
-
-
-// Create select field element and populate with options.
+    
+ 
+    //getElementById function
+    function ne (x) {
+        var theElement = document.getElementById(x);
+        return theElement;
+    };
+ 
+ 
+     //Find Value of selected radio button
+    function getSelectedRadio () {
+        var radio = document.forms[0].sex,
+            sexValue;
+        for (var i = 0; i < radio.length; i++) {
+            if (radio[i].checked){
+                sexValue = radio[i].value;
+            };
+        };
+     };
+     
+    // Create select field element and populate with options.
     function makeElement () {
         var formTag = document.getElementsByTagName("form"), // formTag is an array of all the form tags.
             selectLi = ne("select"),
@@ -51,20 +61,9 @@ var gpaRanges = ["--Choose Your GPA--","A: 4.0 - 3.5", "B: 3.4 - 2.5", "C: 2.4 -
             makeSelect.appendChild(makeOption);
         };
         selectLi.appendChild(makeSelect);
-    };
-
-//Find Value of selected radio button
-    function getSelectedRadio () {
-        var radio = document.forms[0].sex,
-            sexValue;
-        for (var i = 0; i < radio.length; i++) {
-            if (radio[i].checked){
-                sexValue = radio[i].value;
-            };
-        };
-    };
-
-//Find Value of selected checkbox
+     }; 
+ 
+     //Find Value of selected checkbox
     function getCheckbox () {
         var checkbox = document.forms[0].pop;
         for (var i = 0; i < checkbox.length; i++) {
@@ -72,8 +71,8 @@ var gpaRanges = ["--Choose Your GPA--","A: 4.0 - 3.5", "B: 3.4 - 2.5", "C: 2.4 -
                 sizeValue = checkbox[i].value;
             };
         };
-    };
-
+     };  
+     
     function toggleControls(n){
         switch(n){
             case "on":
@@ -95,6 +94,7 @@ var gpaRanges = ["--Choose Your GPA--","A: 4.0 - 3.5", "B: 3.4 - 2.5", "C: 2.4 -
                 return false;
         };
     };
+ 
     function saveData (key) {
         // If there is no key this means this is a brand new item and we need a brand new key
         if(!key){
@@ -119,11 +119,13 @@ var gpaRanges = ["--Choose Your GPA--","A: 4.0 - 3.5", "B: 3.4 - 2.5", "C: 2.4 -
             item.pop    = ["Campus Size:", sizeValue];
             item.interests =["Interests:", ne('comments').value];
              
+ 
         //Save data into local storage; Use stringify to convert object to string.
         localStorage.setItem(id, JSON.stringify(item));
         alert("Information Saved!");
     };
-
+ 
+ 
     function getData () {
         toggleControls("on");
         if (localStorage.length === 0) {
@@ -157,7 +159,7 @@ var gpaRanges = ["--Choose Your GPA--","A: 4.0 - 3.5", "B: 3.4 - 2.5", "C: 2.4 -
             };
             makeItemLinks(localStorage.key(i), linksli); // Create our edit and delete links/buttons for each item in local storage.
         };
-     };
+     }; 
     // get the image for the right category being displayed
      function getImage (iconName, makeSubList) {
         var imageLi = document.createElement('li');
@@ -177,9 +179,9 @@ var gpaRanges = ["--Choose Your GPA--","A: 4.0 - 3.5", "B: 3.4 - 2.5", "C: 2.4 -
         };
      };
       
-    //Make Item Links
-    //Create the edit and delete links for each stored item when displayed.
-    function makeItemLinks (key, linksli) {
+     //Make Item Links
+     //Create the edit and delete links for each stored item when displayed.
+     function makeItemLinks (key, linksli) {
         //Edit single item link
         var editLink = document.createElement("a");
             editLink.href = '#';
@@ -201,9 +203,9 @@ var gpaRanges = ["--Choose Your GPA--","A: 4.0 - 3.5", "B: 3.4 - 2.5", "C: 2.4 -
         deleteLink.innerHTML = "Delete Text";
         linksli.appendChild(deleteLink);
  
-    };
+     };
  
-    function editItem () {
+     function editItem () {
         //Grab data from our item from local storage
         var value = localStorage.getItem(this.key);
         var obj = JSON.parse(value);
@@ -246,7 +248,7 @@ var gpaRanges = ["--Choose Your GPA--","A: 4.0 - 3.5", "B: 3.4 - 2.5", "C: 2.4 -
         //so we can use that value when we save the data we edited.
         editSubmit.addEventListener("click", validate);
         editSubmit.key = this.key;
-    };
+     };
  
     function deleteItem () {
         var ask = confirm("Are you sure you want to delete thins information?");
@@ -259,7 +261,7 @@ var gpaRanges = ["--Choose Your GPA--","A: 4.0 - 3.5", "B: 3.4 - 2.5", "C: 2.4 -
         };
     };
  
-    function clearLocal () {
+     function clearLocal () {
         if (localStorage.length === 0){
             alert("There is no data to clear.");
         }else{
@@ -268,9 +270,9 @@ var gpaRanges = ["--Choose Your GPA--","A: 4.0 - 3.5", "B: 3.4 - 2.5", "C: 2.4 -
             window.location.reload();
             return false;
         };
-    };
+     };
  
-    function validate (data) {
+     function validate (data) {
         //Define the elements we want to check
         var getFname = ne('fname');
         var getLname = ne('lname');
@@ -342,19 +344,32 @@ var gpaRanges = ["--Choose Your GPA--","A: 4.0 - 3.5", "B: 3.4 - 2.5", "C: 2.4 -
  
         };
     };
+ 
+    // variable defaults
+    var gpaRanges = ["--Choose Your GPA--","A: 4.0 - 3.5", "B: 3.4 - 2.5", "C: 2.4 - 1.5", "D: 1.4 - 1.0", "F: 0.9 - 0.0"],
+        sexValue,
+        sizeValue,
+        errMsg = ne('errors');
+ 
+    makeElement();
+ 
+    // Submit Link & Submit Click Events
+    var displayLink = ne("displayLink");
+    displayLink.addEventListener("click", getData);
+     
+      
+    var clearLink = ne("clear");
+    clearLink.addEventListener("click", clearLocal);
+ 
+    var save = ne("submit");
+    rcForm.validate({
+        invalidHandler: function(form, validator) {},
+        submitHandler: function() {
+            var data = rcForm.serializeArray();
+            parseCollegeForm(data);
+        };
 
-makeElement();
-
-
-
-// Submit Link & Submit Click Events
-var displayLink = ne("displayLink");
-
-var clearLink = ne("clear");
-
-var save = ne("submit");
-
-});
-
-
+    });
     
+ 
+});
