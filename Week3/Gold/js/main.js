@@ -1,5 +1,10 @@
+/* Gawain Bracy II
+    Week 3
+    05/17/12
+    MiU 1205
+*/
 // Style field highlight
-    function styleField (name){
+function styleField (name){
          
     var field = document.getElementById(name);
     field.style.backgroundColor = "yellow";
@@ -155,7 +160,7 @@ var gpaRanges = ["--Choose Your GPA--","A: 4.0 - 3.5", "B: 3.4 - 2.5", "C: 2.4 -
         };
      };
     // get the image for the right category being displayed
-     function getImage (iconName, makeSubList) {
+    function getImage (iconName, makeSubList) {
         var imageLi = document.createElement('li');
         makeSubList.appendChild(imageLi);
         var newImg = document.createElement('img');
@@ -171,7 +176,7 @@ var gpaRanges = ["--Choose Your GPA--","A: 4.0 - 3.5", "B: 3.4 - 2.5", "C: 2.4 -
             var id   = Math.floor(Math.random()* 10000001);
             localStorage.setItem(id, JSON.stringify(json[c]));
         };
-     };
+    };
       
     //Make Item Links
     //Create the edit and delete links for each stored item when displayed.
@@ -267,7 +272,9 @@ var gpaRanges = ["--Choose Your GPA--","A: 4.0 - 3.5", "B: 3.4 - 2.5", "C: 2.4 -
     };
 
     $(document).ready(function () {
-    var rcForm = $('#recordcollege');
+        var rcForm = $('#recordcollege');
+        
+
  
     /*function validate (data) {
         //Define the elements we want to check
@@ -353,8 +360,7 @@ var gpaRanges = ["--Choose Your GPA--","A: 4.0 - 3.5", "B: 3.4 - 2.5", "C: 2.4 -
     var clearLink = ne("clear");
 
     var save = ne("submit");
-
-});
-
-
-    
+    rcForm.validate({
+    });
+        
+});    
