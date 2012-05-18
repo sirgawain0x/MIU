@@ -60,6 +60,7 @@ window.addEventListener("DOMContentLoaded", function(){
         };
         selectLi.appendChild(makeSelect);
     };
+    makeElement();
 
 //Find Value of selected radio button
     function getSelectedRadio () {
@@ -363,7 +364,7 @@ window.addEventListener("DOMContentLoaded", function(){
         };
     };
 
-    makeElement();
+    
 
 
 
