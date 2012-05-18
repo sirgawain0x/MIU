@@ -49,3 +49,6 @@ label{
 	font-weight: bold;
 }
 
+input#submit{
+	right: 204px;
+}
