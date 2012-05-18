@@ -18,6 +18,10 @@ function unstyleField (name){
     return field;
 };
 
+/*var parseCollegeForm = function(data) {
+     // Uses form data here...
+};*/
+
 //getElementById function
 function ne (x) {
     var theElement = document.getElementById(x);
@@ -37,6 +41,9 @@ var gpaRanges = ["--Choose Your GPA--","A: 4.0 - 3.5", "B: 3.4 - 2.5", "C: 2.4 -
     save,
     validate,
     errMsg = ne('errors');
+
+// Wait until the DOM is ready.
+window.addEventListener("DOMContentLoaded", function(){
 
 // Create select field element and populate with options.
     function makeElement () {
@@ -271,12 +278,19 @@ var gpaRanges = ["--Choose Your GPA--","A: 4.0 - 3.5", "B: 3.4 - 2.5", "C: 2.4 -
         };
     };
 
-    $(document).ready(function () {
+/*    $(document).ready(function () {
         var rcForm = $('#recordcollege');
-        
+        rcForm.validate({
+            invalidHandler: function(form, validator) {},
+            submitHandler: function() {
+                var data = rcForm.serializeArray();
+                parseCollegeForm(data);
+            };
+        });
+*/ 
 
  
-    /*function validate (data) {
+    function validate (data) {
         //Define the elements we want to check
         var getFname = ne('fname');
         var getLname = ne('lname');
@@ -348,7 +362,6 @@ var gpaRanges = ["--Choose Your GPA--","A: 4.0 - 3.5", "B: 3.4 - 2.5", "C: 2.4 -
  
         };
     };
-    */
 
     makeElement();
 
@@ -356,11 +369,11 @@ var gpaRanges = ["--Choose Your GPA--","A: 4.0 - 3.5", "B: 3.4 - 2.5", "C: 2.4 -
 
     // Submit Link & Submit Click Events
     var displayLink = ne("displayLink");
+    displayLink.addEventListener("click", getData);
 
     var clearLink = ne("clear");
+    clearLink.addEventListener("click", clearLocal);
 
     var save = ne("submit");
-    rcForm.validate({
-    });
-        
+    save.addEventListener("click", validate);        
 });    

@@ -99,7 +99,7 @@
 			</div>
 		</div><!--Content-->
 
-		<div data-role="footer" data-position="fixed" data-id="home">
+		<div data-role="footer" data-position="fixed" data-id="home" data-add-back-btn="true">
 			
 			<div data-role="navbar">
 				<ul>
@@ -113,7 +113,7 @@
 		</div><!--Footer-->
 	</div><!--Page-->
 
-	<div data-role="page" id="addcollege" data-add-back-btn="true">
+	<div data-role="page" id="addcollege">
 		<div data-role="header" data-position="fixed">
 			<h1>Add College</h1>
 		</div>
@@ -134,15 +134,18 @@
 				<ul id="errors"></ul>
 				<ul>
 					<div data-role="fieldcontain">
-					<li><label for="fname">* First Name:</label><input type="text" name="fname" id="fname" class="required" placeholder="First Name" onfocus="styleField(&quot;fname&quot;);" onBlur="unstyleField(&quot;fname&quot;);" /></li>
+					<li><label for="fname">* First Name:</label>
+						<input type="text" name="fname" id="fname" class="required" placeholder="First Name" onfocus="styleField(&quot;fname&quot;);" onBlur="unstyleField(&quot;fname&quot;);" /></li>
 					</div>
 					<div data-role="fieldcontain">
-					<li><label for="lname">* Last Name:</label><input type="text" name="lname" id="lname" class="required" placeholder="Last Name" onfocus="styleField(&quot;lname&quot;);" onBlur="unstyleField(&quot;lname&quot;);" /></li>
+					<li><label for="lname">* Last Name:</label>
+						<input type="text" name="lname" id="lname" class="required" placeholder="Last Name" onfocus="styleField(&quot;lname&quot;);" onBlur="unstyleField(&quot;lname&quot;);" /></li>
 					</div>
 					<!--<li><label for="pword">* Password:</label><input type="password" id="pword" onfocus="styleField(&quot;pword&quot;);" onBlur="unstyleField(&quot;pword&quot;);"/></li>
 					<li><label for="cpword">* Confirm Password:(Disabled)</label><input type="password" id="cpword" onfocus="styleField(&quot;cpword&quot;);" onBlur="unstyleField(&quot;cpword&quot;);" disabled /></li>-->
 					<div data-role="fieldcontain">
-					<li><label for="email">* Email:</label><input type="email" name="email" id="email" class="required email" onfocus="styleField(&quot;email&quot;);" onBlur="unstyleField(&quot;email&quot;);"/><p>example@email.com</p></li>
+					<li><label for="email">* Email:</label>
+						<input type="email" name="email" id="email" class="required email" onfocus="styleField(&quot;email&quot;);" onBlur="unstyleField(&quot;email&quot;);"/><p>example@email.com</p></li>
 					</div>
 				</ul>
 			</fieldset>
@@ -152,10 +155,12 @@
 					<li>Male or Female?
 						<ul>
 							<div data-role="fieldcontain">
-							<li><label for="male">Male</label><input type="radio" id="male" checked value="male" name="male" /></li>
+							<li><label for="male">Male</label>
+								<input type="radio" id="male" checked value="male" name="male" /></li>
 							</div>
 							<div data-role="fieldcontain">
-							<li><label for="female">Female</label><input type="radio" id="female" name="female" /></li>
+							<li><label for="female">Female</label>
+								<input type="radio" id="female" name="female" /></li>
 							</div>
 
 						</ul>
