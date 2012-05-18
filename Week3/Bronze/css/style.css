@@ -9,7 +9,7 @@ html, body, ul, li {
   	padding: 0;
 }
 
-ul {
+li {
 	list-style-type: none;
 }
 
@@ -47,8 +47,4 @@ label{
 	text-align: center;
 	font: 1.3em "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
 	font-weight: bold;
-}
-
-input#submit{
-	right: 204px;
 }
