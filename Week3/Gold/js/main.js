@@ -44,6 +44,9 @@ var gpaRanges = ["--Choose Your GPA--","A: 4.0 - 3.5", "B: 3.4 - 2.5", "C: 2.4 -
 
 // Wait until the DOM is ready.
 window.addEventListener("DOMContentLoaded", function(){
+/*($(document).ready(function(){
+    var rcform = $('recordcollege');
+*/
 
 // Create select field element and populate with options.
     function makeElement () {
