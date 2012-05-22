@@ -4,6 +4,7 @@
     MiU 1205
 */
 
+
 // Style field highlight
 function styleField (name){
          
@@ -19,13 +20,22 @@ function unstyleField (name){
     return field;
 };
 
-
+$(document).bind('pageinit', function(){
+    var rcform = $('#recordcollege');
+        rcform.validate();
+)};
 
 //getElementById function
 function ne (x) {
     var theElement = document.getElementById(x);
     return theElement;
 };
+
+
+
+    /*var parseCollegeForm = function(save) {
+    // Uses form data here...
+};*/
 
 // variable defaults
 var gpaRanges = ["--Choose Your GPA--","A: 4.0 - 3.5", "B: 3.4 - 2.5", "C: 2.4 - 1.5", "D: 1.4 - 1.0", "F: 0.9 - 0.0"],
@@ -39,26 +49,10 @@ var gpaRanges = ["--Choose Your GPA--","A: 4.0 - 3.5", "B: 3.4 - 2.5", "C: 2.4 -
     deleteItem,
     save,
     validate,
-    parseCollegeForm,
-    rcform,
     errMsg = ne('errors');
-
-var parseCollegeForm = function(save) {
-    // Uses form data here...
-};
 
 // Wait until the DOM is ready.
 //window.addEventListener("DOMContentLoaded", function(){
-$(document).bind('pageinit', function(){
-    var rcform = $('#recordcollege');
-        rcform.validate(({
-            invalidHandler: function(form, validator) {},
-            submitHandler: function() {
-                var data = rcform.serializeArray();
-                parseCollegeForm(save);
-            };
-        });
-}):
 
 
 
