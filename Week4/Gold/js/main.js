@@ -43,24 +43,21 @@ var gpaRanges = ["--Choose Your GPA--","A: 4.0 - 3.5", "B: 3.4 - 2.5", "C: 2.4 -
     rcform,
     errMsg = ne('errors');
 
-var parseCollegeForm = function(save) {
+var parseCollegeForm = function(data) {
     // Uses form data here...
 };
 
 // Wait until the DOM is ready.
-//window.addEventListener("DOMContentLoaded", function(){
 $(document).bind('pageinit', function(){
     var rcform = $('#recordcollege');
-        rcform.validate(({
-            invalidHandler: function(form, validator) {},
+        rcform.validate();
+       /*     invalidHandler: function(form, validator) {},
             submitHandler: function() {
                 var data = rcform.serializeArray();
                 parseCollegeForm(save);
             };
-        });
-}):
-
-
+        });*/
+});
 
 // Create select field element and populate with options.
     function makeElement () {
@@ -308,7 +305,7 @@ $(document).bind('pageinit', function(){
 */ 
 
  
-    function validate (data) {
+/*    function validate (data) {
         //Define the elements we want to check
         var getFname = ne('fname');
         var getLname = ne('lname');
@@ -379,7 +376,7 @@ $(document).bind('pageinit', function(){
             saveData(this.key);
  
         };
-    };
+    };*/
 
     // Submit Link & Submit Click Events
     var displayLink = ne("displayLink");

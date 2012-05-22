@@ -20,7 +20,7 @@
 	
 	<!-- StyleSheets under here -->
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
-	<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 	
 	
 	<!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
@@ -33,7 +33,6 @@
 		<div data-role="header" data-position="fixed">
 			<h1>College Selector</h1>
 			<form method='get' action="http://www.google.com/search"><input type="search" name="q" id="search-basic" data-role="searchbar" placeholder="Search For A College..."/>
-			</form>
 		</div>
 		<div data-role="content">
 			<div text-align:"center" style="position: relative;"><img src="images/CTA_05.jpg" alt="image" style="position: relative; width: 100%"/>
@@ -65,30 +64,41 @@
    				</ul>
 			</div>
 			<!--News Feed Title-->
-			<div id="news" align="center"><h3>Recent Colleges</h3>
+			<div id="news">Recent Colleges
 			</div> 
-			<div class="ui-grid-b" >
+			<div class="ui-grid-b" data-inlay"true">
 				<div class="ui-block-a">
-							<a href="" data-inlay="true">
+					<ul data-role="listview">
+						<li>
+							<a href="">
 								<img src="http://www.architecturelist.com/wp-content/uploads/2011/04/Main-Entrance-520x348.jpg" height="80px"/>
-								<h4>University of Miami</h4>
+								<h3>University of Miami</h3>
 							</a>
+						</li>
+					</ul>
 				</div>
 				<div class="ui-block-b">
+					<ul data-role="listview">
+						<li>
 							<a href="">
 								<img src="http://www.rsmart.com/files/rsmart/icons/Picture%202.png" height="80px"/>
-								<h4>University of Arizona</h4>
+								<!--<h3>University of Arizona</h3>-->
 							</a>
+						</li>
+					</ul>
 				</div>
 				<div class="ui-block-c">
+					<ul data-role="listview">
+						<li>
 							<a href="">
 								<img src="http://www.princetonreview.com/images/photos/1022976/NYUarch.jpg" height="80px"/>
-								<h4>New York University</h4>
+								<!--<h3>New York University</h3>-->
 							</a>
+						</li>
+					</ul>
 				</div>
 			</div>
-<!--/Content-->
-		</div>
+		</div><!--Content-->
 
 		<div data-role="footer" data-position="fixed" data-id="home" data-add-back-btn="true">
 			
@@ -99,12 +109,10 @@
 					<li><a href="http://g2musicgroup.github.com/MIU/Week3/Bronze/index.html" data-icon="back">Bronze App</a></li>
 					<li><a href="#addcollege" data-icon="plus">Add</a></li>
 				</ul>
-<!-- /navbar -->
-			</div>
-<!--/Footer-->
-		</div>
-<!--/Page-->
-	</div>
+			</div><!-- /navbar -->
+
+		</div><!--Footer-->
+	</div><!--Page-->
 <!--Form-->
 	<div data-role="page" id="addcollege">
 		<div data-role="header" data-position="fixed">
