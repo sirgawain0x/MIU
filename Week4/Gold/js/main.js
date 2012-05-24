@@ -54,7 +54,7 @@ $(document).bind('pageinit', function(){
        /*     invalidHandler: function(form, validator) {},
             submitHandler: function() {
                 var data = rcform.serializeArray();
-                parseCollegeForm(save);
+                parseCollegeForm(data);
             };
         });*/
 });

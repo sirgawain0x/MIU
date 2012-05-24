@@ -19,8 +19,6 @@ function unstyleField (name){
     return field;
 };
 
-
-
 //getElementById function
 function ne (x) {
     var theElement = document.getElementById(x);
@@ -51,16 +49,14 @@ var parseCollegeForm = function(data) {
 //window.addEventListener("DOMContentLoaded", function(){
 $(document).bind('pageinit', function(){
     var rcform = $('#recordcollege');
-        rcform.validate(({
+        rcform.validate({
             invalidHandler: function(form, validator) {},
             submitHandler: function() {
                 var data = rcform.serializeArray();
                 parseCollegeForm(data);
             };
         });
-}):
-
-
+});
 
 // Create select field element and populate with options.
     function makeElement () {
