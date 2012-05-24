@@ -49,14 +49,25 @@ var parseCollegeForm = function(data) {
 
 // Wait until the DOM is ready.
 $(document).bind('pageinit', function(){
-    var rcform = $('#recordcollege');
-        rcform.validate();
-       /*     invalidHandler: function(form, validator) {},
+    var rcform = $('#recordcollege'),
+        rcerrorslink = $("#rcerrorslink");
+        rcform.validate({
+            invalidHandler: function(form, validator) {
+                rcerrorslink.click();
+                var html = " ";
+                for(var key in validator.submitted){
+                    var label = $('label[for^="'+ key +'"]').not('[generated]');
+                    var legend = label.closest('fieldset').find('.ui-controlgroup-label');
+                    var fieldName = legend.legnth ? legend.text() : label.text();
+                    html += "<li>" + fieldName + "</li>";
+                };
+                $("#recordcollegeerrors ul").html(html);
+            },
             submitHandler: function() {
                 var data = rcform.serializeArray();
                 parseCollegeForm(data);
-            };
-        });*/
+            }
+        });
 });
 
 // Create select field element and populate with options.

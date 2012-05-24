@@ -43,5 +43,14 @@ label{
 p{
 	font: 0.9em Arial, "Trebuchet MS", sans-serif;
 	color: grey;
+}
 
+label.error{
+	display: block;
+	margin: 10px 0px;
+	color: red;
+}
+
+#rcerrorslink{
+	display: none;
 }
