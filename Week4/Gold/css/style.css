@@ -26,9 +26,6 @@ legend{
 	font-style: italic;
 }
 
-a:hover{
-	color: #C46D3B; outline: none;
-}
 
 textarea{
 	padding: 10px;
@@ -42,7 +39,7 @@ label{
 
 p{
 	font: 0.9em Arial, "Trebuchet MS", sans-serif;
-	color: grey;
+	color: blue;
 }
 
 label.error{
@@ -56,6 +53,6 @@ label.error{
 }
 
 .ui-page{
-	background-image: url(images/college-Selector-Background.jpg);
-	background-repeat: none;
+	background-image: url(images/college-Selector-Background2.jpg);
+
 }
