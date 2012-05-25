@@ -55,3 +55,7 @@ label.error{
 	display: none;
 }
 
+.ui-page{
+	background-image: url(images/college-Selector-Background.jpg);
+	background-repeat: none;
+}

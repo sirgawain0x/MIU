@@ -166,7 +166,7 @@ $(document).bind('pageinit', function(){
             autoFillData();
         };
         displayLink(localStorage); // build the data to display on the list page
-        $.mobile.changePage('#displayLink'); // go to page to display list
+        $.mobile.changePage('#displaydata'); // go to page to display list
     };
         //write data from local storage to browser.
         var makeDiv = document.createElement('div');
