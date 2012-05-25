@@ -19,6 +19,7 @@
 	<meta http-equiv="cleartype" content="on">
 	
 	<!-- StyleSheets under here -->
+	<link rel="stylesheet" href="themes/CS_Theme_1.min.css" />
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
 	<link rel="stylesheet" type="text/css" href="css/style.css"/>
 	
@@ -29,15 +30,13 @@
 </head>
 <body>
 <!--INDEX-->
-	<div data-role="page" id="home">
-		<div data-role="header" data-position="fixed">
-			<h1>College Selector</h1>
+	<div data-role="page" id="home" >
+		<div data-role="header" data-theme="a">
+			<p><a href="#home"><img src="images/Logo.png" style="height: 80px; padding: 0px 10px;" id="logo"></a></p>
 			<form method='get' action="http://www.google.com/search"><input type="search" name="q" id="search-basic" data-role="searchbar" placeholder="Search For A College..."/>
 			</form>
 		</div>
 		<div data-role="content">
-			<div><a href="#home"><img src="images/logo.png" alt="logo" style="height: 50px"/></a>
-			</div>
 			<div text-align:"center" style="position: relative;"><img src="images/CTA_05.jpg" alt="image" style="position: relative; width: 100%"/>
 			</div>
 			<p><a href="#addcollege" data-role="button" data-theme="b" data-icon="arrow-r" data-iconpos="right" data-ajax="false">Add A College</a></p>
@@ -109,10 +108,11 @@
 	</div>
 <!--Form-->
 	<div data-role="page" id="addcollege">
-		<div data-role="header" data-position="fixed">
-			<h1>Add College</h1>
+		<div data-role="header">
+			<h1>Add A College</h1>
+			<p><a href="#home"><img src="images/Logo.png" style="height: 80px; padding: 0px 10px;" id="logo"></a></p>
 		</div>
-		<div class="ui-grid-b" data-inlay"true">
+		<div class="ui-grid-b" data-type"horizontal">
 			<div class="ui-block-a">
 				<a href="" data-role="button" id="displayLink" data-mini="true" data-inline="true" data-theme="b">Display Data</a>
 			</div>
@@ -218,7 +218,7 @@
 		</div>
 <!--/Page-->
 	</div>
-<!--Dialog-->x
+<!--Dialog-->
 	<div data-role="dialog" id="recordcollegeerrors">
 		<div data-role="header" data-position="fixed">
 			<h1>Errors</h1>
@@ -227,6 +227,13 @@
 			<ul>
 				<li>Test</li>
 			</ul>
+		</div>
+<!--/Dialog-->
+	</div>
+	<div data-role="page" id="displaydata">
+		<div data-role="header" data-position="fixed">
+			<h1>Saved Data</h1>
+			<p><a href="#home"><img src="images/Logo.png" style="height: 80px; padding: 0px 10px;" id="logo"></a></p>
 		</div>
 	</div>
 	

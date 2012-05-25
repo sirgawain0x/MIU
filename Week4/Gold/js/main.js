@@ -37,6 +37,7 @@ var gpaRanges = ["--Choose Your GPA--","A: 4.0 - 3.5", "B: 3.4 - 2.5", "C: 2.4 -
     makeItemLinks,
     editItem,
     deleteItem,
+    displayLink,
     save,
     validate,
     parseCollegeForm,
@@ -164,6 +165,9 @@ $(document).bind('pageinit', function(){
             alert("There is no data in Local Storage so default data was added.");
             autoFillData();
         };
+        displayLink(localStorage); // build the data to display on the list page
+        $.mobile.changePage('#displayLink'); // go to page to display list
+    };
         //write data from local storage to browser.
         var makeDiv = document.createElement('div');
         makeDiv.setAttribute("id", "items");
@@ -189,9 +193,8 @@ $(document).bind('pageinit', function(){
                 makeSubli.innerHTML = optSubText;
                 makeSubList.appendChild(linksli);
             };
-            makeItemLinks(localStorage.key(i), linksli); // Create our edit and delete links/buttons for each item in local storage.
+            makeItemLinks(localStorage.key(i), linksli ); // Create our edit and delete links/buttons for each item in local storage.
         };
-     };
     // get the image for the right category being displayed
     function getImage (iconName, makeSubList) {
         var imageLi = document.createElement('li');
@@ -313,7 +316,7 @@ $(document).bind('pageinit', function(){
                 parseCollegeForm(data);
             };
         });
-*/ 
+*/
 
  
 /*    function validate (data) {
@@ -396,4 +399,12 @@ $(document).bind('pageinit', function(){
     var clearLink = ne("clear");
     clearLink.addEventListener("click", clearLocal);
 
-    var save = ne("submit");  
+    var save = ne("submit");
+    save.addEventListener("click", saveData);
+
+
+
+
+
+
+
