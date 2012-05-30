@@ -300,7 +300,7 @@ window.addEventListener("DOMContentLoaded", function(){
         };
  
         //Email Validation
-        var reg = /^\w+([\.]?\w+)*@\w+([\.]?\w+)*(\.\w{2,3})+ne/;
+        var reg = /^\w+([\.]?\w+)*@\w+([\.]?\w+)*(\.\w{2,3})+$/;
             if(!(reg.exec(getEmail.value))){
                 var emailError = "Please enter a valid email address.";
                 getEmail.style.border = "1px solid red";
