@@ -3,33 +3,7 @@
     05/17/12
     MiU 1205
 */
-var parseCollegeForm = function(data) {
-    // Uses form data here...
-    console.log(data);
-};
 
-// Wait until the DOM is ready.
-$(document).bind('pageinit', function(){
-    var rcform = $('#recordcollege'),
-        rcerrorslink = $("#rcerrorslink");
-        rcform.validate({
-            invalidHandler: function(form, validator) {
-                rcerrorslink.click();
-                var html = " ";
-                for(var key in validator.submitted){
-                    var label = $('label[for^="'+ key +'"]').not('[generated]');
-                    var legend = label.closest('fieldset').find('.ui-controlgroup-label');
-                    var fieldName = legend.legnth ? legend.text() : label.text();
-                    html += "<li>" + fieldName + "</li>";
-                };
-                $("#recordcollegeerrors ul").html(html);
-            },
-            submitHandler: function() {
-                var data = rcform.serializeArray();
-                parseCollegeForm(data);
-            }
-        });
-});
 // Style field highlight
 function styleField (name){
          
@@ -45,9 +19,7 @@ function unstyleField (name){
     return field;
 };
 
-// Wait until DOM is ready
-window.addEventListener("DOMContentLoaded", function()
-{
+
 
 //getElementById function
 function ne (x) {
@@ -72,6 +44,32 @@ var gpaRanges = ["--Choose Your GPA--","A: 4.0 - 3.5", "B: 3.4 - 2.5", "C: 2.4 -
     rcform,
     errMsg = ne('errors');
 
+var parseCollegeForm = function(data) {
+    // Uses form data here...
+};
+
+// Wait until the DOM is ready.
+$(document).bind('pageinit', function(){
+    var rcform = $('#recordcollege'),
+        rcerrorslink = $("#rcerrorslink");
+        rcform.validate({
+            invalidHandler: function(form, validator) {
+                rcerrorslink.click();
+                var html = " ";
+                for(var key in validator.submitted){
+                    var label = $('label[for^="'+ key +'"]').not('[generated]');
+                    var legend = label.closest('fieldset').find('.ui-controlgroup-label');
+                    var fieldName = legend.legnth ? legend.text() : label.text();
+                    html += "<li>" + fieldName + "</li>";
+                };
+                $("#recordcollegeerrors ul").html(html);
+            },
+            submitHandler: function() {
+                var data = rcform.serializeArray();
+                parseCollegeForm(data);
+            }
+        });
+});
 
 // Create select field element and populate with options.
     function makeElement () {
@@ -114,14 +112,14 @@ var gpaRanges = ["--Choose Your GPA--","A: 4.0 - 3.5", "B: 3.4 - 2.5", "C: 2.4 -
     function toggleControls(n){
         switch(n){
             case "on":
-            ne("recordcollege").style.display = "none";
+            ne("form").style.display = "none";
             ne("clear").style.display = "inline";
             ne("displayLink").style.display = "none";
             ne("addNew").style.display = "inline";
  
             break;
             case "off":
-            ne("recordcollege").style.display = "block";
+            ne("form").style.display = "block";
             ne("clear").style.display = "inline";
             ne("displayLink").style.display = "inline";
             ne("addNew").style.display = "none";
@@ -138,7 +136,7 @@ var gpaRanges = ["--Choose Your GPA--","A: 4.0 - 3.5", "B: 3.4 - 2.5", "C: 2.4 -
         if(!key){
          
         //Gather up all form filled values and store in object.
-        id   = Math.floor(Math.random()* 10000001);
+            id   = Math.floor(Math.random()* 10000001);
         }else{
             // Set the id to the existing key that we're editing so that it will save over the data
             //The key is the same key that's been passed along from the editSubmit event handler
@@ -168,44 +166,26 @@ var gpaRanges = ["--Choose Your GPA--","A: 4.0 - 3.5", "B: 3.4 - 2.5", "C: 2.4 -
             alert("There is no data in Local Storage so default data was added.");
             autoFillData();
         };
-        //displayLink(localStorage); // build the data to display on the list page
+        displayLink(localStorage); // build the data to display on the list page
         $.mobile.changePage('#displaydata'); // go to page to display list
     };
         //write data from local storage to browser.
         var makeDiv = document.createElement('div');
         makeDiv.setAttribute("id", "items");
-        makeDiv.setAttribute("data-role", "content");
-        makeDiv.setAttribute("data-theme", "d");
-
-        var makeDivPrimary = document.createElement("div");
-        makeDivPrimary.setAttribute("class", "content-primary");
-
         var makeList = document.createElement('ul');
-        makeList.setAttribute("id", "one");
-        makeList.setAttribute("data-role", "listview");
-        makeList.setAttribute("data-filter", "true");
-        makeList.setAttribute("data-inset", "true");
-
         makeDiv.appendChild(makeList);
-        makeDivPrimary.appendChild(makeList);
         document.body.appendChild(makeDiv);
         ne("items").style.display = "block";
         for (var i = 0, ls = localStorage.length; i < ls; i++) {
             var makeli = document.createElement('li');
-            makeli.setAttribute("id", "two");
             var linksli = document.createElement('li');
-            linksLi.setAttribute("id", "three");
             makeList.appendChild(makeli);
             var key = localStorage.key(i);
             var value = localStorage.getItem(key);
             //convert string from local storage value back to an object by using JSON.parse()
             var obj = JSON.parse(value);
             var makeSubList = document.createElement('ul');
-            makeSubList.setAttribute("href", "#");
-            makeSubList.setAttribute("id", "four");
-            
             makeli.appendChild(makeSubList);
-            
             getImage(obj.group[1], makeSubList);
             for(var b in obj){
                 var makeSubli = document.createElement('li');
@@ -283,7 +263,7 @@ var gpaRanges = ["--Choose Your GPA--","A: 4.0 - 3.5", "B: 3.4 - 2.5", "C: 2.4 -
         };
         ne('groups').value = obj.group[1];
  
-        var check = document.forms[1].pop;
+        var check = document.forms[0].pop;
         for (var a = 0, c = check.length; i < c; i++) {
             if(check[i].value == "Small" && obj.pop[1] == "Small") {
                 ne('small').setAttribute("checked", "checked");
@@ -422,8 +402,7 @@ var gpaRanges = ["--Choose Your GPA--","A: 4.0 - 3.5", "B: 3.4 - 2.5", "C: 2.4 -
 
     var save = ne("submit");
     save.addEventListener("click", saveData);
-    //save.addEventListener("click", validate);
-});
+
 
 
 
