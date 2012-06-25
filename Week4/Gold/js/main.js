@@ -28,7 +28,7 @@ $(document).bind('pageinit', function(){
                 var data = rcform.serializeArray();
                 parseCollegeForm(data);
             }
-        });
+        })
 });
 // Style field highlight
 function styleField (name){
@@ -133,12 +133,18 @@ var gpaRanges = ["--Choose Your GPA--","A: 4.0 - 3.5", "B: 3.4 - 2.5", "C: 2.4 -
         };
     };
     function saveData (key) {
-        var id;
+    
         // If there is no key this means this is a brand new item and we need a brand new key
         if(!key){
          
         //Gather up all form filled values and store in object.
-        id   = Math.floor(Math.random()* 10000001);
+        var id   = Math.floor(Math.random()* 10000001);
+        }
+        //Remove Weird Data that creates keys for file directories
+        else if(key === "A-Z" || "a-z")
+        {
+            //delete weird data and move on
+            localStorage.removeItem(this.key);
         }else{
             // Set the id to the existing key that we're editing so that it will save over the data
             //The key is the same key that's been passed along from the editSubmit event handler
@@ -160,6 +166,16 @@ var gpaRanges = ["--Choose Your GPA--","A: 4.0 - 3.5", "B: 3.4 - 2.5", "C: 2.4 -
         //Save data into local storage; Use stringify to convert object to string.
         localStorage.setItem(id, JSON.stringify(item));
         alert("Information Saved!");
+    };
+
+    //Auto Populate Local Storage
+    function autoFillData () {
+        // The actual actual JSON OBJECT data required for this to work is coming from out JSON. js file which is loaded to out HTML page.
+        // Store the JSON Object into local storage.
+        for(var c in json){
+            var id   = Math.floor(Math.random()* 10000001);
+            localStorage.setItem(id, JSON.stringify(json[c]));
+        };
     };
 
     function getData () {
@@ -225,15 +241,6 @@ var gpaRanges = ["--Choose Your GPA--","A: 4.0 - 3.5", "B: 3.4 - 2.5", "C: 2.4 -
         imageLi.appendChild(newImg);
       
      };
-     //Auto Populate Local Storage
-     function autoFillData () {
-        // The actual actual JSON OBJECT data required for this to work is coming from out JSON. js file which is loaded to out HTML page.
-        // Store the JSON Object into local storage.
-        for(var c in json){
-            var id   = Math.floor(Math.random()* 10000001);
-            localStorage.setItem(id, JSON.stringify(json[c]));
-        };
-    };
       
     //Make Item Links
     //Create the edit and delete links for each stored item when displayed.
