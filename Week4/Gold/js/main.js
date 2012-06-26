@@ -3,33 +3,8 @@
     05/17/12
     MiU 1205
 */
-var parseCollegeForm = function(data) {
-    // Uses form data here...
-    console.log(data);
-};
 
-// Wait until the DOM is ready.
-$(document).bind('pageinit', function(){
-    var rcform = $('#recordcollege'),
-        rcerrorslink = $("#rcerrorslink");
-        rcform.validate({
-            invalidHandler: function(form, validator) {},
-                rcerrorslink.click();
-                var html = " ";
-                for(var key in validator.submitted){
-                    var label = $('label[for^="'+ key +'"]').not('[generated]');
-                    var legend = label.closest('fieldset').find('.ui-controlgroup-label');
-                    var fieldName = legend.legnth ? legend.text() : label.text();
-                    html += "<li>" + fieldName + "</li>";
-                };
-                $("#recordcollegeerrors ul").html(html);
-            },
-            submitHandler: function() {
-                var data = rcform.serializeArray();
-                parseCollegeForm(data);
-            }
-        })
-});
+
 // Style field highlight
 function styleField (name){
          
@@ -45,6 +20,44 @@ function unstyleField (name){
     return field;
 };
 
+var parseProjectForm = function(data)
+    {
+        // uses form data here;
+        console.log(data);
+    };
+    
+    $(document).ready(function()
+    {
+        var projectForm = $("#projectForm"),
+            rcerrorslink = $("#rcerrorslink");
+        projectForm.validate(
+        {
+        //options to change behavior of validator
+            invalidHandler: function(form, validator)
+            {
+                //error messages
+                rcerrorslink.click();
+                var html = " ";
+                for(var key in validator.submitted){
+                    var label = $('label[for^="'+ key +'"]').not('[generated]');
+                    var legend = label.closest('fieldset').find('.ui-controlgroup-label');
+                    var fieldName = legend.legnth ? legend.text() : label.text();
+                    html += "<li>" + fieldName + "</li>";
+                };
+                $("#recordcollegeerrors ul").html(html);
+            },
+            submitHandler: function()
+            {
+                //when valid form is submitted
+                //store all data
+                //target form
+                var data = projectForm.serializeArray();
+                //call function & pass data in
+                parseProjectForm(data);
+            }
+        });
+    });
+
 // Wait until DOM is ready
 window.addEventListener("DOMContentLoaded", function()
 {
@@ -54,23 +67,6 @@ function ne (x) {
     var theElement = document.getElementById(x);
     return theElement;
 };
-
-// variable defaults
-var gpaRanges = ["--Choose Your GPA--","A: 4.0 - 3.5", "B: 3.4 - 2.5", "C: 2.4 - 1.5", "D: 1.4 - 1.0", "F: 0.9 - 0.0"],
-    sexValue,
-    sizeValue,
-    autoFillData,
-    getImage,
-    json,
-    makeItemLinks,
-    editItem,
-    deleteItem,
-    displayLink,
-    save,
-    validate,
-    parseCollegeForm,
-    rcform,
-    errMsg = ne('errors');
 
 
 // Create select field element and populate with options.
@@ -88,11 +84,12 @@ var gpaRanges = ["--Choose Your GPA--","A: 4.0 - 3.5", "B: 3.4 - 2.5", "C: 2.4 -
         };
         selectLi.appendChild(makeSelect);
     };
-    makeElement();
+    
 
 //Find Value of selected radio button
     function getSelectedRadio () {
-        var radio = document.forms[0].sex;
+        var radio = document.forms[0].sex,
+            sexValue;
         for (var i = 0; i < radio.length; i++) {
             if (radio[i].checked){
                 sexValue = radio[i].value;
@@ -113,14 +110,14 @@ var gpaRanges = ["--Choose Your GPA--","A: 4.0 - 3.5", "B: 3.4 - 2.5", "C: 2.4 -
     function toggleControls(n){
         /*switch(n){
             case "on":
-            ne("recordcollege").style.display = "none";
+            ne("form").style.display = "none";
             ne("clear").style.display = "inline";
             ne("displayLink").style.display = "none";
             ne("addNew").style.display = "inline";
  
             break;
             case "off":
-            ne("recordcollege").style.display = "block";
+            ne("form").style.display = "block";
             ne("clear").style.display = "inline";
             ne("displayLink").style.display = "inline";
             ne("addNew").style.display = "none";
@@ -133,19 +130,20 @@ var gpaRanges = ["--Choose Your GPA--","A: 4.0 - 3.5", "B: 3.4 - 2.5", "C: 2.4 -
         */
     };
     function saveData (key) {
-    
+    var id;
         // If there is no key this means this is a brand new item and we need a brand new key
         if(!key){
          
         //Gather up all form filled values and store in object.
-        var id   = Math.floor(Math.random()* 10000001);
+        id   = Math.floor(Math.random()* 10000001);
         }
         //Remove Weird Data that creates keys for file directories
         else if(key === "A-Z" || "a-z")
         {
             //delete weird data and move on
             localStorage.removeItem(this.key);
-        }else{
+        }
+        else{
             // Set the id to the existing key that we're editing so that it will save over the data
             //The key is the same key that's been passed along from the editSubmit event handler
             //to the validate function, and then passed here, into the storeData function.
@@ -168,60 +166,31 @@ var gpaRanges = ["--Choose Your GPA--","A: 4.0 - 3.5", "B: 3.4 - 2.5", "C: 2.4 -
         alert("Information Saved!");
     };
 
-    //Auto Populate Local Storage
-    function autoFillData () {
-        // The actual actual JSON OBJECT data required for this to work is coming from out JSON. js file which is loaded to out HTML page.
-        // Store the JSON Object into local storage.
-        for(var c in json){
-            var id   = Math.floor(Math.random()* 10000001);
-            localStorage.setItem(id, JSON.stringify(json[c]));
-        };
-    };
-
     function getData () {
         toggleControls("on");
         if (localStorage.length === 0) {
             alert("There is no data in Local Storage so default data was added.");
             autoFillData();
         };
-        //displayLink(localStorage); // build the data to display on the list page
-        $.mobile.changePage('#displaydata'); // go to page to display list
+        displayLink(localStorage); // build the data to display on the list page
     };
         //write data from local storage to browser.
         var makeDiv = document.createElement('div');
         makeDiv.setAttribute("id", "items");
-        makeDiv.setAttribute("data-role", "content");
-        makeDiv.setAttribute("data-theme", "d");
-
-        var makeDivPrimary = document.createElement("div");
-        makeDivPrimary.setAttribute("class", "content-primary");
-
         var makeList = document.createElement('ul');
-        makeList.setAttribute("id", "one");
-        makeList.setAttribute("data-role", "listview");
-        makeList.setAttribute("data-filter", "true");
-        makeList.setAttribute("data-inset", "true");
-
         makeDiv.appendChild(makeList);
-        makeDivPrimary.appendChild(makeList);
         document.body.appendChild(makeDiv);
         ne("items").style.display = "block";
         for (var i = 0, ls = localStorage.length; i < ls; i++) {
             var makeli = document.createElement('li');
-            makeli.setAttribute("id", "two");
             var linksli = document.createElement('li');
-            linksLi.setAttribute("id", "three");
             makeList.appendChild(makeli);
             var key = localStorage.key(i);
             var value = localStorage.getItem(key);
             //convert string from local storage value back to an object by using JSON.parse()
             var obj = JSON.parse(value);
             var makeSubList = document.createElement('ul');
-            makeSubList.setAttribute("href", "#");
-            makeSubList.setAttribute("id", "four");
-            
             makeli.appendChild(makeSubList);
-            
             getImage(obj.group[1], makeSubList);
             for(var b in obj){
                 var makeSubli = document.createElement('li');
@@ -241,6 +210,15 @@ var gpaRanges = ["--Choose Your GPA--","A: 4.0 - 3.5", "B: 3.4 - 2.5", "C: 2.4 -
         imageLi.appendChild(newImg);
       
      };
+     //Auto Populate Local Storage
+     function autoFillData () {
+        // The actual actual JSON OBJECT data required for this to work is coming from out JSON. js file which is loaded to out HTML page.
+        // Store the JSON Object into local storage.
+        for(var c in json){
+            var id   = Math.floor(Math.random()* 10000001);
+            localStorage.setItem(id, JSON.stringify(json[c]));
+        };
+    };
       
     //Make Item Links
     //Create the edit and delete links for each stored item when displayed.
@@ -274,7 +252,7 @@ var gpaRanges = ["--Choose Your GPA--","A: 4.0 - 3.5", "B: 3.4 - 2.5", "C: 2.4 -
         var obj = JSON.parse(value);
  
         //show form
-        //toggleControls("off");
+        toggleControls("off");
  
         //Populate the form fields with current localStorage values.
         ne('fname').value = obj.fname[1];
@@ -290,7 +268,7 @@ var gpaRanges = ["--Choose Your GPA--","A: 4.0 - 3.5", "B: 3.4 - 2.5", "C: 2.4 -
         };
         ne('groups').value = obj.group[1];
  
-        var check = document.forms[1].pop;
+        var check = document.forms[0].pop;
         for (var a = 0, c = check.length; i < c; i++) {
             if(check[i].value == "Small" && obj.pop[1] == "Small") {
                 ne('small').setAttribute("checked", "checked");
@@ -419,6 +397,24 @@ var gpaRanges = ["--Choose Your GPA--","A: 4.0 - 3.5", "B: 3.4 - 2.5", "C: 2.4 -
  
         };
     };
+    // variable defaults
+var gpaRanges = ["--Choose Your GPA--","A: 4.0 - 3.5", "B: 3.4 - 2.5", "C: 2.4 - 1.5", "D: 1.4 - 1.0", "F: 0.9 - 0.0"],
+    sexValue,
+    sizeValue,
+    autoFillData,
+    getImage,
+    json,
+    makeItemLinks,
+    editItem,
+    deleteItem,
+    displayLink,
+    save,
+    validate,
+    parseCollegeForm,
+    projectForm,
+    errMsg = ne('errors');
+    
+    makeElement();
 
     // Submit Link & Submit Click Events
     var displayLink = ne("displayLink");
@@ -429,7 +425,6 @@ var gpaRanges = ["--Choose Your GPA--","A: 4.0 - 3.5", "B: 3.4 - 2.5", "C: 2.4 -
 
     var save = ne("submit");
     save.addEventListener("click", saveData);
-    //save.addEventListener("click", validate);
 });
 
 
