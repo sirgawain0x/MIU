@@ -84,6 +84,7 @@ function ne (x) {
         };
         selectLi.appendChild(makeSelect);
     };
+    makeElement();
     
 
 //Find Value of selected radio button
